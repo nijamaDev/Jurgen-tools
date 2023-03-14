@@ -1,0 +1,16 @@
+# restrict-shutdown.pkla
+# This file should be placed at /etc/polkit-1/localauthority/50-local.d/
+# This disables shutdown for the user "estudiante"
+[Disable shutdown/restart for user estudiante]
+Identity=unix-user:estudiante
+Action=org.freedesktop.login1.reboot;org.freedesktop.login1.reboot-multiple-sessions;org.freedesktop.login1.power-off;org.freedesktop.login1.power-off-multiple-sessions
+ResultAny=no
+ResultInactive=no
+ResultActive=no
+
+[Disable suspend/hibernate for user estudiante]
+Identity=unix-user:estudiante
+Action=org.freedesktop.login1.suspend;org.freedesktop.login1.suspend-multiple-sessions;org.freedesktop.login1.hibernate;org.freedesktop.login1.hibernate;org.freedesktop.log>
+ResultAny=no
+ResultInactive=no
+ResultActive=no
