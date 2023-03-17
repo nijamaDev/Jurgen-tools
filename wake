@@ -65,18 +65,18 @@ if [ $# -le 0 ]; then
 	printf "
 	Wake-On-LAN
 This utility sends a magic packet to wake up a machine properly configured to listen to Wake-On-LAN/WLAN requests.
-	Usage:  wol.sh [PC-NAME] ... [PC-GROUP]
+	Usage:  wake [PC-NAME] ... [PC-GROUP]
 	
 	PC-NAME:	Example: 
-					wol.sh E5
-					wol.sh B2 B3
-					wol.sh B6 A2 C5 E7
+					wake E5
+					wake B2 B3
+					wake B6 A2 C5 E7
 	
 	PC-GROUP:	Example: 
-					wol.sh all
-					wol.sh xeon
-					wol.sh i9
-					wol.sh old
+					wake all
+					wake xeon
+					wake i9
+					wake old
 "
 exit
 fi
