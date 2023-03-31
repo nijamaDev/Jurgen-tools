@@ -24,6 +24,9 @@ directory=$(dirname $(readlink -f $0))
 groupadd noshutdown
 cp $directory/Policies/* /etc/polkit-1/localauthority/50-local.d/
 
+(echo Disabling Wayland...)
+sed -i 's/#WaylandEnable=false/WaylandEnable=false/' /etc/gdm/custom.conf
+
 (echo Enabling NFS...)
 nfs_entry="192.168.26.37:/nfs  /nfs  nfs4  defaults,user,exec  0 0"
 
@@ -43,13 +46,16 @@ cp $directory/Configs/dnf.conf /etc/dnf/
 dnf up --refresh -y
 
 (echo Enabling EPEL Repo...)
-dnf in -y --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
+dnf in --nogpgcheck -y \
+https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
 
 (echo Enabling CRB repository...)
 crb enable
 
 (echo Enabling RPM Fusion Free and nonfree repos...)
-dnf in -y --nogpgcheck https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-$(rpm -E %rhel).noarch.rpm https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-$(rpm -E %rhel).noarch.rpm
+dnf in --nogpgcheck -y \
+https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-$(rpm -E %rhel).noarch.rpm \
+https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-$(rpm -E %rhel).noarch.rpm
 
 (echo Instaling various codecs and utilities...)
 dnf groupupdate -y core
@@ -59,9 +65,19 @@ dnf in -y rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
 dnf in -y libdvdcss
 dnf in -y \*-firmware || true
 dnf in \
-htop \
 btop \
+htop \
+chrony \
 gnuplot \
+ImageMagick \
+mlocate \
+nano \
+nfs-utils \
+screen \
+rsync \
+tar \
+texlive-scheme-basic \
+wget \
 -y
 
 (echo Enable flathub and add Apps...)
