@@ -2,7 +2,7 @@
 
 # Check if running from root
 if [ $EUID -ne 0 ]; then
-  echo -e "\033[0;31mError: This script must be run as root. You can run with sudo or use 'sudo -i' to switch to the root user.\033[0m" 
+  echo -e "\033[0;31mError: This script must be run as root.\nYou can run with sudo or use 'sudo -i' to switch to the root user.\033[0m" 
   exit 1
 fi
 
@@ -17,7 +17,14 @@ set -x
 (echo Set the date and time to synchronize with an NTP server)
 timedatectl set-ntp true
 
-(echo "Enabling NFS...")
+(echo Setting directory...)
+directory=$(dirname $(readlink -f $0))
+
+(echo Installing policies...)
+groupadd noshutdown
+cp $directory/Policies/* /etc/polkit-1/localauthority/50-local.d/
+
+(echo Enabling NFS...)
 nfs_entry="192.168.26.37:/nfs  /nfs  nfs4  defaults,user,exec  0 0"
 
 # check if the NFS entry already exists in /etc/fstab
@@ -30,7 +37,7 @@ else
 fi
 
 (echo Enabling fastest mirror and parallel downloads on dnf...)
-cp ./dnf.conf /etc/dnf/
+cp $directory/Configs/dnf.conf /etc/dnf/
 
 (echo Updating the system...)
 dnf up --refresh -y

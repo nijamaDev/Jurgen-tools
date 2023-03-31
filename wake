@@ -118,7 +118,7 @@ do
 			on ${old[@]}
 		;;
                 [Cc]luster)
-                       	printf "  [cluster]"
+                        printf "  [cluster]"
                         on ${cluster[@]}
                 ;;
 		crow|crow[0-3])
