@@ -1,0 +1,86 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+192.168.26.37	jurgen
+#192.168.26.31  M Viejo PC monitor movido a D8 [Junio 2022]
+
+192.168.26.39	A0
+#A0 es el PC en el puesto del profesor (A0 <-- Es el antiguo E4) [Enero 2022]
+
+192.168.26.6	A1
+192.168.26.7  A2
+192.168.26.8	A3
+192.168.26.9	A4
+192.168.26.22	A5
+192.168.26.23	A6
+192.168.26.24	A7
+#192.168.26.25	A8 retirado [Junio 2022]
+192.168.26.34	A8
+# A8 <- antiguo E2 [Mayo 2022]
+
+192.168.26.10	B1
+192.168.26.11	B2
+192.168.26.12	B3
+192.168.26.13	B4
+#192.168.26.26	B5 movido a E8 [Junio 2022]
+192.168.26.5	B5
+# nuevo B5 antiguo sin número [Mayo 2022]
+192.168.26.40	B6
+192.168.26.41	B7
+192.168.26.42	B8
+
+192.168.26.14	C1
+192.168.26.15	C2
+192.168.26.16	C3
+192.168.26.17	C4
+192.168.26.43	C5
+192.168.26.44	C6
+192.168.26.45	C7
+192.168.26.46	C8
+
+192.168.26.18 D1
+192.168.26.19	D2
+192.168.26.20	D3
+192.168.26.21	D4
+192.168.26.47	D5
+192.168.26.48	D6
+192.168.26.49	D7
+192.168.26.30	D8
+# D8 <- antiguo PC Monitor [Junio 2022]
+#192.168.26.50	D8 retirado [Junio 2022]
+
+#192.168.26.60	E1 retirado [Enero 2022]
+192.168.26.32	E1
+192.168.26.35	E2
+#192.168.26.34	E2 movido a A8 [Mayo 2022]
+192.168.26.62	E3
+#192.168.26.39	E4 movido a A0 [Enero 2022]
+192.168.26.61	E5
+192.168.26.59	E6
+192.168.26.3	E7
+192.168.26.26	E8
+# E8 <- Antiguo B5 [Junio 2022]
+#192.168.26.5	E8 retirado [Junio 2022]
+
+# Rango de IP en Cluster
+192.168.26.4	switch
+#Bochica2
+192.168.26.51	bochica2
+#Bochica3
+192.168.26.52	rack3	bochica3
+#Bochica4
+192.168.26.53	rack2	bochica4
+192.168.26.54	rack1	bochica5
+192.168.26.55	crow2
+192.168.26.56	crow3
+192.168.26.57	crow4
+#Bochica
+192.168.26.58	rack4	bochica8	bochica
+
+#iLO
+192.168.26.90	  crow5
+192.168.26.91   crow6
+192.168.26.92   bochica3ilo
+192.168.26.93   bochica4ilo
+192.168.26.94   bochica5ilo
+192.168.26.95   crow7

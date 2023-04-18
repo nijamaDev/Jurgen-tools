@@ -21,7 +21,9 @@ timedatectl set-ntp true
 directory=$(dirname $(readlink -f $0))
 
 (echo Installing policies...)
-groupadd noshutdown
+if ! getent group noshutdown >/dev/null; then
+  groupadd noshutdown
+fi
 cp $directory/Policies/* /etc/polkit-1/localauthority/50-local.d/
 
 (echo Disabling Wayland...)
@@ -38,6 +40,9 @@ else
     (echo "$nfs_entry" | tee -a /etc/fstab > /dev/null)
     (echo "NFS entry added to /etc/fstab")
 fi
+
+(echo Setting up various configs)
+cp $directory/Configs/hosts /etc/
 
 (echo Enabling fastest mirror and parallel downloads on dnf...)
 cp $directory/Configs/dnf.conf /etc/dnf/
