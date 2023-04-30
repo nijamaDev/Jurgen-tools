@@ -83,6 +83,7 @@ rsync \
 tar \
 texlive-scheme-basic \
 wget \
+zram-generator \
 -y
 
 (echo Enable flathub and add Apps...)
