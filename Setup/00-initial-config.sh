@@ -76,6 +76,9 @@ chrony \
 gnuplot \
 ImageMagick \
 mlocate \
+mpich-devel \
+python3-mpi4py-mpich \
+mpich-autoload \
 nano \
 nfs-utils \
 screen \
