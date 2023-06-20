@@ -81,6 +81,8 @@ python3-mpi4py-mpich \
 mpich-autoload \
 nano \
 nfs-utils \
+pdsh \
+pdsh-rcmd-ssh \
 screen \
 rsync \
 tar \
